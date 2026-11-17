@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: >
   Novatrix data layer (v45 as code). Needs the network stack. Stack name: novatrix-data.
-  Skeleton: the parts marked TODO are yours to write, see Del 14B steps 9 and 10.
+  Skeleton: the parts marked TODO are yours to write, see Del 13.
 
 Parameters:
   Prefix:

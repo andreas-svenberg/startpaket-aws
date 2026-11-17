@@ -1,5 +1,5 @@
 #!/bin/bash
-# The CPU alarm for the whole group as a command (same as the console steps in Del 20B, step 11),
+# The CPU alarm for the whole group as a command (same as the console steps in Del 19),
 # and a test of the whole chain: alarm, topic, subscription, mail. Run in CloudShell.
 
 # The topic's ARN, looked up by name

@@ -6,4 +6,4 @@ Lägg filerna i din v47-mapp i kursrepot. Kopiera också `natverk.yaml`, `data.y
 - `lasttest.sh` belastar en server i 15 minuter. Kör det på BÅDA gruppens servrar, eftersom gruppen skalar på genomsnittet. Stoppa tidigare med `pkill yes`.
 - `skala-startbit.yaml` (VG) är början på skalningsstacken: lastbalanserare, target group och listener. Launch template, Auto Scaling-grupp och skalningspolicy skriver du själv. Kräver att `natverk.yaml` har `novatrix-public-b` och `novatrix-alb-sg` med exporterna `public-b-subnet-id` och `alb-sg-id`. Namnen krockar med det du byggt i konsolen, så riv de resurserna först.
 
-Stegen finns i handledningen Del 17B i Classroom. Inga lösenord, ingen `wp-config.php` och inga nycklar i repot.
+Stegen och ordningen visas i demona i Del 17. Inga lösenord, ingen `wp-config.php` och inga nycklar i repot.

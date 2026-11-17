@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: >
   Novatrix network layer (v44 as code). Stack name: novatrix-natverk.
-  Skeleton: the parts marked TODO are yours to write, see Del 14B steps 6 to 8.
+  Skeleton: the parts marked TODO are yours to write, see Del 13.
 
 Parameters:
   Prefix:

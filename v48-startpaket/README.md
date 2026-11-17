@@ -1,6 +1,6 @@
 # Startpaket v48, monitorering och cloud native
 
-Lägg filerna i din v48-mapp i kursrepot. Kopiera också `natverk.yaml`, `data.yaml` och `webb.yaml` från din v47-mapp. Stegen finns i handledningen Del 20B i Classroom.
+Lägg filerna i din v48-mapp i kursrepot. Kopiera också `natverk.yaml`, `data.yaml` och `webb.yaml` från din v47-mapp. Stegen och ordningen visas i demona i Del 19.
 
 - `agent-config.json` är CloudWatch-agentens konfiguration. Klistra in hela innehållet som värde i parametern `AmazonCloudWatch-novatrix` i Parameter Store (Standard, String). Namnet måste börja med `AmazonCloudWatch-`.
 - `cwagent-userdata.sh` är user data för en ny version av `novatrix-web-lt`. Den installerar agenten och startar den med konfigurationen från Parameter Store. Gör versionen till default och kör en instance refresh.

@@ -4,7 +4,7 @@ Description: >
   web server, and the web server novatrix-web in the public subnet. User data installs
   WordPress and mounts EFS on wp-content. The WordPress installer is run in the browser.
   Needs the network and data stacks. Stack name: novatrix-webb.
-  Skeleton: the role and the user data are done, the instance is yours, see Del 14B step 11.
+  Skeleton: the role and the user data are done, the instance is yours, see Del 13.
 
 Parameters:
   Prefix:
