@@ -3,19 +3,19 @@
 
 # 1. Requests per status code, without the load balancer's health checks
 filter @message not like /ELB-HealthChecker/
-| parse @message '* - - [*] "* * *" * * *' as ip, tid, metod, sokvag, proto, status, bytes, resten
-| stats count(*) as antal by status
-| sort antal desc
+| parse @message '* - - [*] "* * *" * * *' as ip, time, method, path, proto, status, bytes, rest
+| stats count(*) as requests by status
+| sort requests desc
 
 # 2. Requests per server (one log stream per instance)
 filter @message not like /ELB-HealthChecker/
-| stats count(*) as antal by @logStream
+| stats count(*) as requests by @logStream
 
 # 3. The latest server errors, 500 to 599
 filter @message not like /ELB-HealthChecker/
-| parse @message '* - - [*] "* * *" * * *' as ip, tid, metod, sokvag, proto, status, bytes, resten
+| parse @message '* - - [*] "* * *" * * *' as ip, time, method, path, proto, status, bytes, rest
 | filter status like /^5/
-| fields @timestamp, @logStream, sokvag, status
+| fields @timestamp, @logStream, path, status
 | sort @timestamp desc
 | limit 20
 

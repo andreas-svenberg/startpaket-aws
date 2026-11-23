@@ -1,5 +1,5 @@
 # novatrix-sajtkoll: asks the site like a visitor and sends two metrics to CloudWatch,
-# Tillganglig (1 or 0) and SvarstidMs. Paste into lambda_function.py and click Deploy.
+# Available (1 or 0) and ResponseTimeMs. Paste into lambda_function.py and click Deploy.
 #
 # Configuration:
 #   Timeout 20 seconds (General configuration)
@@ -13,7 +13,7 @@
 #     "Effect": "Allow",
 #     "Action": "cloudwatch:PutMetricData",
 #     "Resource": "*",
-#     "Condition": {"StringEquals": {"cloudwatch:namespace": "Novatrix/Sajtkoll"}}
+#     "Condition": {"StringEquals": {"cloudwatch:namespace": "Novatrix/SiteCheck"}}
 #   }]
 # }
 import os
@@ -36,9 +36,9 @@ def lambda_handler(event, context):
         ok = 0
     ms = (time.time() - start) * 1000
     site = [{"Name": "Site", "Value": os.environ["SITE_NAME"]}]
-    cloudwatch.put_metric_data(Namespace="Novatrix/Sajtkoll", MetricData=[
-        {"MetricName": "Tillganglig", "Dimensions": site, "Value": ok, "Unit": "Count"},
-        {"MetricName": "SvarstidMs", "Dimensions": site, "Value": ms, "Unit": "Milliseconds"},
+    cloudwatch.put_metric_data(Namespace="Novatrix/SiteCheck", MetricData=[
+        {"MetricName": "Available", "Dimensions": site, "Value": ok, "Unit": "Count"},
+        {"MetricName": "ResponseTimeMs", "Dimensions": site, "Value": ms, "Unit": "Milliseconds"},
     ])
     print(f"{url} ok={ok} {ms:.0f} ms")
     return {"ok": ok, "ms": round(ms)}
